@@ -1,1 +1,5 @@
 GeneMod/ipch/.*
+GeneMod/ipch
+GeneMod/.vs
+*.db
+*.opendb
