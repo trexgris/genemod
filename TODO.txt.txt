@@ -1,0 +1,12 @@
+to download:
+
+- SDL_Net
+- SDL image
+
+SDL 2 et sdl 1
+
+---------------------------
+
+to do: 
+- control sprites with keyboard events and travel through different screens ?
+- multi player with sdl net
