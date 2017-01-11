@@ -3,3 +3,8 @@ GeneMod/ipch
 GeneMod/.vs
 *.db
 *.opendb
+GeneMode/packages
+packages
+SDL.1.2.15.16
+Debug
+SDL.redist.1.2.15.16
