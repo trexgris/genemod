@@ -13,7 +13,7 @@ public:
 		return gBGTexture;	};
 
 	TextureWrapper& GetDotTexture() {
-		return gBGTexture;
+		return gDotTexture;
 	};
 	SDL_Window* GetgWindow() { return gWindow; }
 	SDL_Renderer * GetgRenderer() { return gRenderer; }

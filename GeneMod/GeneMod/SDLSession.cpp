@@ -9,9 +9,14 @@ const int SCREEN_HEIGHT = 480;
 
 SDLSession::SDLSession()
 {
-	renderer = std::make_shared<Renderer>(SCREEN_WIDTH, SCREEN_HEIGHT);
+	//renderer = std::make_shared<Renderer>(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
+void SDLSession::InitRenderer()
+{
+	renderer = std::make_shared<Renderer>(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+}
 
 SDLSession::~SDLSession()
 {
@@ -56,6 +61,8 @@ bool SDLSession::Init()
 		}
 
 		//Create window
+		InitRenderer();
+
 		// = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (renderer->GetgWindow() == nullptr)
 		{
@@ -86,6 +93,5 @@ bool SDLSession::Init()
 			}
 		}
 	}
-
 	return success;
 }

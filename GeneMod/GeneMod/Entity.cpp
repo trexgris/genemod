@@ -7,7 +7,8 @@
 #include "TextureWrapper.h"
 #include "Renderer.h"
 
-Entity::Entity()
+Entity::Entity(std::shared_ptr<Renderer> renderer)
+	:renderer(renderer)
 {
 	//Initialize the offsets
 	mPosX = 0;
@@ -54,6 +55,8 @@ void Entity::move()
 	//Move the dot left or right
 	mPosX += mVelX;
 
+	if (!renderer)
+		bool t = true;
 	//If the dot went too far to the left or right
 	if ((mPosX < 0) || (mPosX + DOT_WIDTH > renderer->GetScreenWidth()))
 	{
@@ -74,6 +77,8 @@ void Entity::move()
 
 void Entity::render()
 {
+	if (!texture)
+		bool t = true;
 	//Show the dot
-	texture->render(mPosX, mPosY);
+	renderer->GetDotTexture().render(mPosX, mPosY);
 }

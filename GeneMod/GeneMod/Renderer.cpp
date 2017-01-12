@@ -19,14 +19,14 @@ bool Renderer::LoadMedia()
 	bool success = true;
 
 	//Load dot texture
-	if (!gDotTexture.loadFromFile("31_scrolling_backgrounds/dot.bmp"))
+	if (!gDotTexture.loadFromFile("dot.bmp"))
 	{
 		printf("Failed to load dot texture!\n");
 		success = false;
 	}
 
 	//Load background texture
-	if (!gBGTexture.loadFromFile("31_scrolling_backgrounds/bg.png"))
+	if (!gBGTexture.loadFromFile("bg.png"))
 	{
 		printf("Failed to load background texture!\n");
 		success = false;

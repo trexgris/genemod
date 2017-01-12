@@ -8,3 +8,9 @@ packages
 SDL.1.2.15.16
 Debug
 SDL.redist.1.2.15.16
+GeneMod/x64
+x64
+*.png
+GeneMod/*.png
+*.bmp
+GeneMod/*.bmp
