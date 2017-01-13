@@ -21,6 +21,32 @@ bool SDLSessionHost::Init()
 
 }
 
+void SDLSessionHost::OnLoop()
+{
+	auto tcpclient = tcpclients.front().get();
+	//front
+	if (!connected)
+	{
+		if (tcplistener->Accept(*tcpclient))
+			connected = true;
+	}
+	else
+	{
+		if (tcpclient->Ready())
+		{
+			if (tcpclient->Receive(msg))
+			{
+				//process msg
+			}
+			else
+			{
+				connected = false;
+			}
+		}
+	}
+}
+
+
 
 SDLSessionHost::~SDLSessionHost()
 {

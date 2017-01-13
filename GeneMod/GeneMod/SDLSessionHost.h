@@ -12,6 +12,8 @@ public:
 	SDLSessionHost();
 	~SDLSessionHost();
 	bool Init() override;
+	void OnLoop() override;
+
 private:
 	bool connected;
 	std::unique_ptr<HostSocket> tcplistener;

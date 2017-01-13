@@ -11,7 +11,7 @@ public:
 	void Close();
 	std::shared_ptr<Renderer> GetRenderer() { return renderer; }
 	void InitRenderer();
-
+	virtual void OnLoop() {};
 private:
 	std::shared_ptr<Renderer> renderer;
 };

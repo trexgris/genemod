@@ -13,6 +13,7 @@ public:
 	~SDLSessionClient();
 
 	bool Init() override;
+	void OnLoop() override;
 private:
 
 	bool connected;
