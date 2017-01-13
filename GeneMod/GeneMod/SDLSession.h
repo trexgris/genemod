@@ -7,7 +7,7 @@ class SDLSession
 public:
 	SDLSession();
 	~SDLSession();
-	bool Init();
+	virtual bool Init();
 	void Close();
 	std::shared_ptr<Renderer> GetRenderer() { return renderer; }
 	void InitRenderer();
