@@ -18,6 +18,8 @@ bool SDLSessionHost::InitConnection()
 
 	tcpclients.emplace_back(new ClientSocket());
 
+
+	return true;
 }
 
 void SDLSessionHost::OnLoop()
