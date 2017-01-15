@@ -3,16 +3,15 @@
 #include "HostSocket.h"
 #include "ClientSocket.h"
 
-SDLSessionHost::SDLSessionHost()
-	:connected(false)
-	, tcplistener(nullptr)
+SDLSessionHost::SDLSessionHost():
+	tcplistener(nullptr)
 {
 }
 
 
-bool SDLSessionHost::Init()
+bool SDLSessionHost::InitConnection()
 {
-	SDLSession::Init();
+	//SDLSession::Init();
 	tcplistener = std::make_unique<HostSocket>(1234);
 	if (!tcplistener->Ok())
 		exit(EXIT_FAILURE);

@@ -3,10 +3,6 @@
 
 #include <iostream>
 
-TCPSocket::~TCPSocket()
-{
-}
-
 
 
 TCPSocket::TCPSocket() {

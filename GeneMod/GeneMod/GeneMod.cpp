@@ -7,7 +7,9 @@
 #include <thread>
 #include "Renderer.h"
 #include "Entity.h"
-
+#include "SDLSessionClient.h"
+#include "SDLSessionHost.h"
+#include <iostream>
 #undef main
 
 #define TEST
@@ -18,6 +20,15 @@ int main()
 {
 	SDLSession session;
 	//Start up SDL and create window
+	printf("press h to host, c to be client\n");
+	char c;
+	std::cin  >> c;
+
+
+	if (c == 'h')
+		bool a;
+	else if (c == 'c')
+		bool b;
 	if (!session.Init())
 	{
 		printf("Failed to initialize!\n");

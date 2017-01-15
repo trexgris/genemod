@@ -6,14 +6,16 @@
 class IPAddressWrapper;
 class ClientSocket;
 
-class SDLSessionClient : public SDLSession
+class SDLSessionClient //: public SDLSession
 {
 public:
 	SDLSessionClient();
 	~SDLSessionClient();
 
-	bool Init() override;
-	void OnLoop() override;
+	//bool Init() override;
+	void OnLoop() ;
+	bool InitConnection() ;
+	
 private:
 
 	bool connected;

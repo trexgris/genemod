@@ -2,6 +2,7 @@
 #include "TCPSocket.h"
 class ClientSocket;
 class IPAddress;
+class IPAddressWrapper;
 
 class HostSocket : public TCPSocket
 {

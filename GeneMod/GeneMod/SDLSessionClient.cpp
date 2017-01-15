@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "SDLSessionClient.h"
 #include "ClientSocket.h"
-
+#include <iostream>
 SDLSessionClient::SDLSessionClient()
 	:
-	connected(false),
 	tcpclient(nullptr),
 	remoteIp(nullptr)
 {
@@ -16,11 +15,12 @@ SDLSessionClient::~SDLSessionClient()
 }
 
 
-bool SDLSessionClient::Init()
+bool SDLSessionClient::InitConnection()
 {
-	SDLSession::Init();
+	//SDLSession::Init();
 	tcpclient = std::make_unique<ClientSocket>();
 	remoteIp = std::make_unique<IPAddressWrapper>("195.132.100.229", 1234);
+	return true;
 }
 
 void SDLSessionClient::OnLoop()
@@ -35,11 +35,14 @@ void SDLSessionClient::OnLoop()
 	}
 	else
 	{
+		charbuf t;
 		if (tcpclient->Ready())
 		{
 			if (tcpclient->Receive(msg))
 			{
 				//process msg
+				 msg.UnLoadBytes(t);
+				 std::cout << t;
 			}
 		}
 		else

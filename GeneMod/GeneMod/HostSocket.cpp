@@ -5,10 +5,6 @@
 #include <iostream>
 #include "ClientSocket.h"
 
-HostSocket::~HostSocket()
-{
-}
-
 
 
 HostSocket::HostSocket(IPAddressWrapper& the_ip_address) {

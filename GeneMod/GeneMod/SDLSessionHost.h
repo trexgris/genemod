@@ -6,13 +6,15 @@
 
 class HostSocket;
 class ClientSocket;
-class SDLSessionHost : public SDLSession
+class SDLSessionHost //: public SDLSession
 {
 public:
 	SDLSessionHost();
 	~SDLSessionHost();
-	bool Init() override;
-	void OnLoop() override;
+	//bool Init() override;
+	void OnLoop() ;
+	bool InitConnection() ;
+
 
 private:
 	bool connected;

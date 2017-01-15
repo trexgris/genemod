@@ -3,11 +3,17 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Renderer.h"
+#include "SDLSessionClient.h"
+#include "SDLSessionHost.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 SDLSession::SDLSession()
+	:
+	connected(false),
+	sessionClient(nullptr),
+	sessionHost(nullptr)
 {
 	//renderer = std::make_shared<Renderer>(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
@@ -94,4 +100,14 @@ bool SDLSession::Init()
 		}
 	}
 	return success;
+}
+
+
+void SDLSession::InitHostSession()
+{
+	sessionClient.reset(new SDLSessionClient);
+}
+void SDLSession::InitClientSession()
+{
+	sessionHost.reset(new SDLSessionHost);
 }
