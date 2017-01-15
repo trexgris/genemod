@@ -2,6 +2,7 @@
 #include "SDLSession.h"
 #include <memory>
 #include "SDLNetMessage.h"
+#include "ClientSocket.h"
 
 class IPAddressWrapper;
 class ClientSocket;
@@ -15,6 +16,11 @@ public:
 	//bool Init() override;
 	void OnLoop() ;
 	bool InitConnection() ;
+	void sendtest() {
+		charbuf test = "c";
+		msg.LoadBytes(test, 1);
+		tcpclient->Send(msg);
+	}
 	
 private:
 

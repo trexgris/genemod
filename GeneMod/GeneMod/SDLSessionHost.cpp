@@ -2,7 +2,7 @@
 #include "SDLSessionHost.h"
 #include "HostSocket.h"
 #include "ClientSocket.h"
-
+#include <iostream>
 SDLSessionHost::SDLSessionHost():
 	tcplistener(nullptr)
 {
@@ -35,7 +35,10 @@ void SDLSessionHost::OnLoop()
 		{
 			if (tcpclient->Receive(msg))
 			{
+				charbuf t;
 				//process msg
+				msg.UnLoadBytes(t);
+					std::cout << t;
 			}
 			else
 			{

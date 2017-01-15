@@ -17,6 +17,13 @@ public:
 	virtual bool InitConnection() { return true; };
 	void InitHostSession();
 	void InitClientSession();
+
+	void OnloopHost() { sessionHost->OnLoop(); }
+	void OnloopClient() { sessionClient->OnLoop(); }
+
+	
+
+	
 protected:
 	bool connected;
 private:

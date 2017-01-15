@@ -26,9 +26,9 @@ int main()
 
 
 	if (c == 'h')
-		bool a;
+		session.InitHostSession();
 	else if (c == 'c')
-		bool b;
+		session.InitClientSession();
 	if (!session.Init())
 	{
 		printf("Failed to initialize!\n");
@@ -57,6 +57,8 @@ int main()
 			//While application is running
 			while (!quit)
 			{
+
+#ifdef noludo
 				//Handle events on queue
 				while (SDL_PollEvent(&e) != 0)
 				{
@@ -72,6 +74,7 @@ int main()
 
 				//Move the dot
 				dot.move();
+#endif
 
 				//Scroll background
 				--scrollingOffset;

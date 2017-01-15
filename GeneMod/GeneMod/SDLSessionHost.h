@@ -15,6 +15,7 @@ public:
 	void OnLoop() ;
 	bool InitConnection() ;
 
+	//void Sendtest() {tcplistener->sen}
 
 private:
 	bool connected;

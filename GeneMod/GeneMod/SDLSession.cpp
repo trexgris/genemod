@@ -106,8 +106,11 @@ bool SDLSession::Init()
 void SDLSession::InitHostSession()
 {
 	sessionClient.reset(new SDLSessionClient);
+	sessionClient->InitConnection();
 }
 void SDLSession::InitClientSession()
 {
 	sessionHost.reset(new SDLSessionHost);
+	sessionClient->InitConnection();
+
 }
