@@ -21,7 +21,7 @@ protected:
 	bool connected;
 private:
 	std::shared_ptr<Renderer> renderer;
-	std::unique_ptr<SDLSessionClient> sessionClient;
-	std::unique_ptr<SDLSessionHost> sessionHost;
+	std::shared_ptr<SDLSessionClient> sessionClient;
+	std::shared_ptr<SDLSessionHost> sessionHost;
 };
 
