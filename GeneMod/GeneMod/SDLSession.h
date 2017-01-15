@@ -21,14 +21,15 @@ public:
 	void OnloopHost() { sessionHost->OnLoop(); }
 	void OnloopClient() { sessionClient->OnLoop(); }
 
-	
+	std::shared_ptr<SDLSessionClient> getsessionClient() { return sessionClient; };
+	std::shared_ptr<SDLSessionHost> getsessionHost() { return sessionHost; };
 
 	
 protected:
 	bool connected;
 private:
 	std::shared_ptr<Renderer> renderer;
-	std::unique_ptr<SDLSessionClient> sessionClient;
-	std::unique_ptr<SDLSessionHost> sessionHost;
+	std::shared_ptr<SDLSessionClient> sessionClient;
+	std::shared_ptr<SDLSessionHost> sessionHost;
 };
 

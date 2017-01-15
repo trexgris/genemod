@@ -57,6 +57,17 @@ int main()
 			//While application is running
 			while (!quit)
 			{
+				if (session.getsessionClient())
+				{
+					session.getsessionClient()->OnLoop();
+					session.getsessionClient()->sendtest();
+
+				}
+
+				else if (session.getsessionHost())
+				{
+					session.getsessionHost()->OnLoop();
+				}
 
 #ifdef noludo
 				//Handle events on queue
