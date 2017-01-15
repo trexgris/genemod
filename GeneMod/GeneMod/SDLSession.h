@@ -17,6 +17,9 @@ public:
 	virtual bool InitConnection() { return true; };
 	void InitHostSession();
 	void InitClientSession();
+
+	std::shared_ptr<SDLSessionClient> GetsessionClient();
+	std::shared_ptr<SDLSessionHost> GetsessionHost();
 protected:
 	bool connected;
 private:

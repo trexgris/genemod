@@ -10,6 +10,7 @@
 #include "SDLSessionClient.h"
 #include "SDLSessionHost.h"
 #include <iostream>
+#include "SDL_net.h"
 #undef main
 
 #define TEST
@@ -20,21 +21,24 @@ int main()
 {
 	SDLSession session;
 	//Start up SDL and create window
-	printf("press h to host, c to be client\n");
-	char c;
-	std::cin  >> c;
 
-
-	if (c == 'h')
-		bool a;
-	else if (c == 'c')
-		bool b;
 	if (!session.Init())
 	{
 		printf("Failed to initialize!\n");
 	}
 	else
 	{
+		SDLNet_Init();
+
+		printf("press h to host, c to be client\n");
+		char c;
+		std::cin >> c;
+
+
+		if (c == 'h')
+			session.InitHostSession();
+		else if (c == 'c')
+			session.InitClientSession();
 		//Load media
 		if (!session.GetRenderer()->LoadMedia())
 		{
@@ -42,6 +46,8 @@ int main()
 		}
 		else
 		{
+		
+
 			//Main loop flag
 			bool quit = false;
 
@@ -57,8 +63,20 @@ int main()
 			//While application is running
 			while (!quit)
 			{
+
+				if (session.GetsessionClient())
+				{
+					session.GetsessionClient()->OnLoop();
+					session.GetsessionClient()->sendtest();
+
+				}
+				else if (session.GetsessionHost())
+				{
+					session.GetsessionHost()->OnLoop();
+				}
+#if 0
 				//Handle events on queue
-				while (SDL_PollEvent(&e) != 0)
+					while (SDL_PollEvent(&e) != 0)
 				{
 					//User requests quit
 					if (e.type == SDL_QUIT)
@@ -93,6 +111,7 @@ int main()
 
 				//Update screen
 				SDL_RenderPresent(session.GetRenderer()->GetgRenderer());
+#endif
 			}
 		}
 	}

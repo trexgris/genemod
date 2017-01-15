@@ -15,6 +15,8 @@ public:
 	//bool Init() override;
 	void OnLoop() ;
 	bool InitConnection() ;
+	void sendtest();
+
 	
 private:
 

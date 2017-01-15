@@ -5,7 +5,7 @@
 #include "Renderer.h"
 #include "SDLSessionClient.h"
 #include "SDLSessionHost.h"
-
+#include "SDL_net.h"
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
@@ -99,15 +99,23 @@ bool SDLSession::Init()
 			}
 		}
 	}
+
 	return success;
 }
 
 
-void SDLSession::InitHostSession()
-{
-	sessionClient.reset(new SDLSessionClient);
-}
 void SDLSession::InitClientSession()
 {
-	sessionHost.reset(new SDLSessionHost);
+	sessionClient.reset(new SDLSessionClient);
+	sessionClient->InitConnection();
 }
+void SDLSession::InitHostSession()
+{
+	sessionHost.reset(new SDLSessionHost);
+	sessionHost->InitConnection();
+}
+
+std::shared_ptr<SDLSessionClient> SDLSession::GetsessionClient() {
+	return sessionClient;
+}
+std::shared_ptr<SDLSessionHost> SDLSession::GetsessionHost() { return sessionHost; }

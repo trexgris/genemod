@@ -19,7 +19,7 @@ bool SDLSessionClient::InitConnection()
 {
 	//SDLSession::Init();
 	tcpclient = std::make_unique<ClientSocket>();
-	remoteIp = std::make_unique<IPAddressWrapper>("195.132.100.229", 1234);
+	remoteIp = std::make_unique<IPAddressWrapper>("86.18.86.239", 1234);//"195.132.100.229", 1234);
 	return true;
 }
 
@@ -50,4 +50,11 @@ void SDLSessionClient::OnLoop()
 			connected = false;
 		}
 	}
+}
+
+
+void SDLSessionClient::sendtest() {
+	charbuf test = "c";
+	msg.LoadBytes(test, 1);
+	tcpclient->Send(msg);
 }

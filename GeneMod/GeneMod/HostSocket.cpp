@@ -24,7 +24,8 @@ HostSocket::HostSocket(Uint16 port) {
 	else {
 		TCPSocket::TCPSocket();
 		IPaddress iph = iplistener.GetIpAddress();
-		if (!(m_Socket = SDLNet_TCP_Open(&iph))) {
+		m_Socket = SDLNet_TCP_Open(&iph);
+		if (!m_Socket) {
 			SDLNet_FreeSocketSet(set);
 			std::cerr << "SDLNet_TCP_Open: " << SDLNet_GetError() << std::endl;
 		}
